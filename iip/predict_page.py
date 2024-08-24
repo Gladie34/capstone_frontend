@@ -13,3 +13,5 @@ def load_model():
 def show_predict_page():
     st.title("Loan prediction approval")
     st.write("""### we need some information to check on your loan approvals""")
+
+show_predict_page()
