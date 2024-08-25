@@ -30,7 +30,7 @@ def show_predict_page():
         luxury_assets_value=st.number_input("Luxury Assets Value",value=None,placeholder="Enter your luxury asset value...")
         bank_assets_value=st.number_input("Bank Assets Value",value=None,placeholder="Enter your bank asset value...")
 
-        submit=st.buttom("Check Loan status")
+        submit=st.button("Check Loan status")
         if submit:
             input_data = pd.DataFrame({
                 'loan_id': [loan_id],
