@@ -7,6 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 
 
 def load_model():
+    pickle.dump([], open('xgb_model.pkl', 'wb'))
     with open('xgb_model.pkl', 'rb') as file:
         loaded_model = pickle.load(file)
     return loaded_model
