@@ -9,6 +9,7 @@ def load_model():
     with open('xgb_model.pkl', 'rb') as file:
         loaded_model = pickle.load(file)
     return loaded_model
+loaded_model=load_model()
 
 #loaded_model=load_model #execute the model
 
@@ -52,7 +53,7 @@ def show_predict_page():
             input_data['self_employed'] = le.fit_transform(input_data['self_employed'])
 
             # Prediction using the loaded model
-            prediction =load_model.predict(input_data)
+            prediction =loaded_model.predict(input_data)
 
             # Display the prediction result
             st.write(f"Loan Status: {'Approved' if prediction[0] == 1 else 'Rejected'}")
