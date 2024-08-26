@@ -15,8 +15,8 @@ def load_model():
 #loaded_model=load_model() #execute the model
 
 def show_predict_page():
-    st.title("Loan prediction approval ")
-    st.write("""### we need some information to check on your loan approvals""")
+    st.title("Loan Prediction Approval System")
+    st.write("""### We need some information to check on your loan approvals""")
     loaded_model=load_model() #execute the model
 
     with st.sidebar:
