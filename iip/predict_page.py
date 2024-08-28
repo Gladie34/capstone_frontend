@@ -15,12 +15,12 @@ def load_model():
 #loaded_model=load_model() #execute the model
 
 def show_predict_page():
-    st.title("Loan prediction approval ")
-    st.write("""### we need some information to check on your loan approvals""")
+    st.title("Loan Prediction Approval System")
+    st.write("""### We need some information to check on your loan approvals""")
     loaded_model=load_model() #execute the model
 
     with st.sidebar:
-        loan_id=st.number_input("Load Id",value=None,placeholder="Type a number...")
+        #loan_id=st.number_input("Load Id",value=None,placeholder="Type a number...")
         no_of_dependents=st.number_input("No of dependents",value=None,placeholder="Type a number...")
         education=st.selectbox("Education Level",options=["Graduate","Not Graduate"],placeholder="Select Education level...")
         self_employed=st.selectbox("Self-Employed",options=["Yes","No"],placeholder="select...")
@@ -31,12 +31,12 @@ def show_predict_page():
         residential_assets_value=st.number_input("Residential Asset Value",value=None,placeholder="Enter the value of your residential asset..")
         commercial_assets_value=st.number_input("Commercial Assets Value",value=None,placeholder="Enter your commercial asset value...")
         luxury_assets_value=st.number_input("Luxury Assets Value",value=None,placeholder="Enter your luxury asset value...")
-        bank_assets_value=st.number_input("Bank Assets Value",value=None,placeholder="Enter your bank asset value...")
+        bank_asset_value=st.number_input("Bank Assets Value",value=None,placeholder="Enter your bank asset value...")
 
         submit=st.button("Check Loan status")
         if submit:
             input_data = pd.DataFrame({
-                'loan_id': [loan_id],
+                #'loan_id': [loan_id],
                 'no_of_dependents': [no_of_dependents],
                 'education': [education],
                 'self_employed': [self_employed],
@@ -47,7 +47,7 @@ def show_predict_page():
                 'residential_assets_value': [residential_assets_value],
                 'commercial_assets_value': [commercial_assets_value],
                 'luxury_assets_value': [luxury_assets_value],
-                'bank_assets_value': [bank_assets_value]
+                'bank_asset_value': [bank_asset_value]
             })
             #encoding categorical variables
             le = LabelEncoder()
@@ -58,4 +58,4 @@ def show_predict_page():
             prediction =loaded_model.predict(input_data)
 
             # Display the prediction result
-            st.write(f"Loan Status: {'Approved' if prediction[0] == 1 else 'Rejected'}")
+            st.write(f"Loan Status: {'Approved' if prediction[0] == 0 else 'Rejected'}")
